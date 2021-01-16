@@ -18,25 +18,42 @@ class Node:
 #AVL Tree Class
 class AVL_Tree:
     def __init__(self):
-        self.root = None
+        self.node = None
+        self.height = 0
     
     def search(self, key):
         # search Data by using key 
-        if self.root == key:
-            return key
-        elif self.root.data > key:
-            return search(self.root.left, key)
+        if self.node == key:
+            return True
+        elif self.height == 0:
+            return False
+        elif self.node.data > key:
+            return search(self.node.left, key)
         else :
-            return search(self.root.right, key)
+            return search(self.node.right, key)
     
+    # Insert data in Tree remaining AVL Tree 
     def insert(self, key):
-        # insert data in Tree remaining AVL Tree
+        if search(key) == True:
+            print("Already %d is existed".format(key))
+        cnode = self.node # Current Node
+        if cnode == None: # Or self == None
+            node = Node(key)
+            cnode = node
+        elif cnode.data > key:
+            insert(cnode.left, key)
+        else :
+            insert(cnode.right, key)
+        balance()
 
-    def delete():
-        # delete data in Tree remaining AVL Tree
-    
-    def getHeight():
-
+    # Delete data in Tree remaining AVL Tree
+    def delete(self, key):
+        
+    # Get height start from leaf node, So leaf node height is 0
+    def getHeight(self):
+        # if 
+        self.height = max()
+    def balance(self):
 
     # Rotate the left subtree of the left child of the unbalanced node
     def rotateLL():
